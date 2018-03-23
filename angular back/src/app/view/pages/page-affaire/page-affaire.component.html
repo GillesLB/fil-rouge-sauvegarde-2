@@ -1,0 +1,18 @@
+<section fxLayout="row" fxLayout.xs="column">
+  <mat-card fxFlex="40">
+    <h2>Affaire {{affaire.name}}</h2>
+    <h4>Description</h4>
+<!-- description de l'affaire -->
+    <mat-card>
+      <p>{{affaire.description}}</p>
+    </mat-card> 
+  </mat-card>
+<mat-card fxFlex="60">
+  <h4>Historique [Fonctionnalité à venir]</h4>
+  <app-message-affaire></app-message-affaire>
+</mat-card>
+</section>
+<mat-card>
+  <h4>Sections</h4>
+  <app-explore-tables></app-explore-tables>
+</mat-card>

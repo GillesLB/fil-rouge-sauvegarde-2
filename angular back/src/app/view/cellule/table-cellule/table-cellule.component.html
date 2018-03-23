@@ -1,0 +1,33 @@
+<mat-toolbar fxLayoutAlign="center">liste des cellules</mat-toolbar>
+<section>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre">
+  </mat-form-field>
+<mat-table [dataSource]="celluleSource">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Identifiant</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.id}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Name</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.name}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="model">
+    <mat-header-cell *matHeaderCellDef>Model</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.model}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="color">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Couleur</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.color}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="celluleColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: celluleColumns" routerLink="{{row.id}}"></mat-row>
+</mat-table>
+<mat-paginator #paginator
+                 [pageSize]=8
+                 [pageSizeOptions]="[5, 10, 20]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
+</section>
+<button mat-fab class="add" routerLink="/newcellule"><mat-icon>add</mat-icon></button>

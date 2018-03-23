@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    color: #ff6d00;
+}
+
+footer {
+    background-color: #042f52 !important;
+    height: 40px !important;
+    width: 100%;
+    text-align: center;
+    color: white !important;
+    margin-bottom: -10;
+}
+
+mat-icon {
+    color: white !important;
+}
+
+mat-sidenav {
+    width: 200px;
+}
+
+mat-sidenav-container {
+    height: 85vh;
+}
+
+mat-toolbar {
+    background-color: #042f52 !important;
+    color: white !important;
+}
+
+.envoyer {
+    background-color: blueviolet;
+}
+
+.fond {
+    background-color: rgb(250, 249, 211);
+}
+
+.logo {
+    font-family: 'Ultra', serif;
+    font-size: 60px !important;
+    font-weight: bold !important;
+    text-align: center;
+    color: white;
+}
+
+.mat-card {
+    margin: 10px;
+}
+
+.matricule {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.nom {
+    text-align: center;
+    margin: 0px;
+}
+
+.titrePage {
+    background-color: #042f52;
+    color: white;
+    font-size: 26px;
+}
+
+.userIcon {
+    height: 120px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 10px;
+}

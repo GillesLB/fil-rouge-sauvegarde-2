@@ -1,0 +1,24 @@
+<mat-table [dataSource]="weaponSource">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Identifiant</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.id}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="createDate">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Date d'intégration</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.createDate | date: 'dd/MM/yyyy'}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.type}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="modele">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Modèle</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.modele}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="updateDate">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Mise à jour</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.updateDate | date: 'dd/MM/yyyy'}}</mat-cell>
+    </ng-container>
+  <mat-header-row *matHeaderRowDef="weaponColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: weaponColumns"></mat-row>
+</mat-table>

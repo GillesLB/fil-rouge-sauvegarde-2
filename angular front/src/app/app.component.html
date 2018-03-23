@@ -1,0 +1,36 @@
+<!-- header -->
+<mat-toolbar>
+    <mat-toolbar-row fxLayout="row">
+        <button mat-button><mat-icon (click)="sidenav.toggle()" fxFlex="20">menu</mat-icon></button>
+        <h1 class="logo" fxFlex="80" routerLink="/dashboard">POLICE SIMPLON</h1>
+    </mat-toolbar-row>   
+</mat-toolbar>
+
+<!-- barre de navigation -->
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode='over'>
+<!-- contenu du menu de navigation -->
+<!-- Identité utilisateur -->
+        <img src="assets/images/UserIcon.png" class="userIcon" style="text-align: center"/>
+        <h4 class="nom">Gérôme Grignon</h4>
+        <h6 class="matricule">Agent n°0860</h6>
+<!-- liens de navigation -->
+        <mat-nav-list>
+            <a mat-list-item routerLink="/dashboard" (click)="sidenav.close()">Tableau de bord</a>
+            <a mat-list-item routerLink="/newcase" (click)="sidenav.close()">Créer Affaire</a>
+            <a mat-list-item routerLink="/vehicules" (click)="sidenav.close()">Véhicules</a>
+            <a mat-list-item routerLink="/weapons" (click)="sidenav.close()">Armes</a>
+            <a mat-list-item routerLink='/cellules' (click)='sidenav.close()'>Cellules</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+<!-- routage de l'application -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- footer -->
+<footer>
+    <div>Footer provisoire</div>
+</footer>

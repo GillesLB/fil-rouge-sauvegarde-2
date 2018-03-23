@@ -1,0 +1,15 @@
+<form #weaponForm="ngForm"
+  (ngSubmit)="onSubmit(weaponForm)"
+  fxLayout="column" class="container">
+  <mat-form-field>
+    <input matInput type="text" required
+      placeholder="Type" name="type"
+      [(ngModel)]="weapon.type">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" required
+      placeholder="Modèle" name="modele"
+      [(ngModel)]="weapon.modele">
+  </mat-form-field>
+  <button mat-raised-button class="envoyer" type="submit" [disabled]="!weaponForm.valid">Envoyer</button>
+</form>

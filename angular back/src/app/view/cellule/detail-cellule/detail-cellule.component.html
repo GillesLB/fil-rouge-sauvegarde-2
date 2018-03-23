@@ -1,0 +1,16 @@
+<mat-card>
+  <div fxLayout='row' fxLayout.xs='column'>
+    <article fxFlex='40'>
+      <h1 [ngStyle.xs]='title'>CELLULE</h1>
+      <p>Nom : {{cellule.name}}</p>
+      <p>Modèle : {{cellule.model}}</p>
+      <p>Couleur : {{cellule.color}}</p>  
+    </article>
+    <mat-card fxFlex='60'>PHOTO</mat-card>
+  </div>
+</mat-card>
+<div  fxLayout="row" fxLayoutAlign="end">
+  <button mat-raised-button color="accent">Editer</button>
+  <button mat-raised-button color="accent" (click)="delete()">Supprimer</button>
+<button mat-raised-button (click)="backToList()" color="accent">Retour</button>
+</div>

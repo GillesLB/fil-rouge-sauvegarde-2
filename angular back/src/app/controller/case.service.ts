@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { map, delay, tap } from 'rxjs/operators';
+import { Case } from '../model/case';
+
+const HOST = 'http://localhost:8080/api';
+
+@Injectable()
+export class CaseService {
+
+  constructor(private http: HttpClient) { }
+
+  getCases(): Observable<Case[]> {
+    return this.http.get<Case[]>(`${HOST}/case`);
+  }
+  createAffaire(c: Case): Observable<Case> {
+    return this.http.post<Case>(`${HOST}/case`, c);
+  }
+}

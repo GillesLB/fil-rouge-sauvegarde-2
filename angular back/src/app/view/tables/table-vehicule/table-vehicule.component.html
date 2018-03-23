@@ -1,0 +1,32 @@
+<mat-table [dataSource]="vehiculeSource">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Identifiant</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.id}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Date d'intégration</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.date | date: 'dd/MM/yyyy'}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Nom</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="brand">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Marque</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.brand}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="color">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Couleur</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.color}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="licensePlate">
+    <mat-header-cell *matHeaderCellDef>Immatriculation</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.licensePlate}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Description</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.description}}</mat-cell>
+    </ng-container>
+  <mat-header-row *matHeaderRowDef="vehiculeColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: vehiculeColumns"></mat-row>
+</mat-table>
