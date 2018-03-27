@@ -27,4 +27,12 @@ export class CelluleService {
     console.log('test');
     return this.http.delete<any>(`${HOST}/cellule/${id}`);
   }
+
+  get() {
+    return ['en', 'es', 'fr'];
+  }
+
+  getJson(): Observable<Cellule> {
+    return this.http.get<Cellule>('cellule.json');
+  }
 }

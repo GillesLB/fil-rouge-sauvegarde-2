@@ -5,13 +5,8 @@ import { Comment } from './comment';
 
 export interface Weapon {
     id?: number;
-    createDate?: string;
     type?: string;
     modele?: string;
-    description?: string;
+    createDate?: string;
     updateDate?: string;
-    listComment?: Comment[];
-    listPhoto?: Photo[];
-    listCase?: Case [];
-    listTag?: Tag[];
 }

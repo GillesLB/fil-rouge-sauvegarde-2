@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MessageAffaireComponent } from './message-affaire.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatTableModule } from '@angular/material';
 
 describe('MessageAffaireComponent', () => {
   let component: MessageAffaireComponent;
@@ -8,7 +10,9 @@ describe('MessageAffaireComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageAffaireComponent ]
+      declarations: [ MessageAffaireComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      imports: [MatTableModule]
     })
     .compileComponents();
   }));

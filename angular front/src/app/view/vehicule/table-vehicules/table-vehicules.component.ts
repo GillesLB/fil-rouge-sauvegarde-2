@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { VehiculeService } from '../../../controller/vehicule.service';
-import {MatTableDataSource, MatPaginator} from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatIconRegistry } from '@angular/material';
 
 @Component({
   selector: 'app-table-vehicules',
@@ -8,17 +8,21 @@ import {MatTableDataSource, MatPaginator} from '@angular/material';
   styleUrls: ['./table-vehicules.component.css']
 })
 export class TableVehiculesComponent implements OnInit {
+  // tableau des colonnes du tableau affichées
   vehiculeColumns = ['date', 'model', 'brand', 'color', 'licensePlate', 'updateDate'];
+  // source des informations envoyées dans le tableau
   vehiculeSource;
   errText: string;
 
+  // Pagination
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private vehiculeService: VehiculeService) { }
 
   ngOnInit() {
+    // requête au chargement de la page
     this.vehiculeService.getVehicules().subscribe(
       cases => {
-        this.vehiculeSource = new MatTableDataSource(cases);
+      this.vehiculeSource = new MatTableDataSource(cases);
       this.vehiculeSource.paginator = this.paginator; });
   }
 

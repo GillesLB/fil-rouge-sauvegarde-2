@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExploreTablesComponent } from './explore-tables.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ExploreTablesComponent', () => {
   let component: ExploreTablesComponent;
@@ -8,7 +9,8 @@ describe('ExploreTablesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExploreTablesComponent ]
+      declarations: [ ExploreTablesComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

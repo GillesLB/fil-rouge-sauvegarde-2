@@ -1,3 +1,6 @@
+<!-- fenêtre de droite de la page éditer pour pouvoir modifier l'arme -->
+<mat-card>
+<mat-toolbar fxLayoutAlign="center center">{{editing ? 'Edition' : 'Création'}}</mat-toolbar>
 <form #weaponForm="ngForm"
   (ngSubmit)="onSubmit(weaponForm)"
   fxLayout="column" class="container">
@@ -13,3 +16,4 @@
   </mat-form-field>
   <button mat-raised-button class="envoyer" type="submit" [disabled]="!weaponForm.valid">Envoyer</button>
 </form>
+</mat-card>

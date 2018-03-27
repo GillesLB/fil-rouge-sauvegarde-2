@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PopupPieceofevidenceComponent } from './popup-pieceofevidence.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PopupPieceofevidenceComponent', () => {
   let component: PopupPieceofevidenceComponent;
@@ -8,7 +9,8 @@ describe('PopupPieceofevidenceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopupPieceofevidenceComponent ]
+      declarations: [ PopupPieceofevidenceComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

@@ -14,12 +14,11 @@ export class CreateCelluleComponent implements OnInit {
   constructor(private celluleService: CelluleService) { }
 
   ngOnInit() {
-    this.cellule = {
-      id: 1,
-      name: '',
-      model: '',
-      color: '',
-    };
+    // this.cellule = {
+    // name: '',
+    //  model: '',
+    //  color: '',
+   // };
   }
 
   onSubmit(form: NgForm) {

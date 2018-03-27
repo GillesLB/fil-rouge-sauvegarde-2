@@ -1,13 +1,14 @@
 <!-- header -->
+<div class="container">
 <mat-toolbar>
     <mat-toolbar-row fxLayout="row">
         <button mat-button><mat-icon (click)="sidenav.toggle()" fxFlex="20">menu</mat-icon></button>
-        <h1 class="logo" fxFlex="80" routerLink="/dashboard">POLICE SIMPLON</h1>
+        <h1 class="logo" fxFlex="80" routerLink="/dashboard">POLICE SIMPLON</h1><img class="titrePageIcone" src="assets/icons/icone-police.png"/>
     </mat-toolbar-row>   
 </mat-toolbar>
 
 <!-- barre de navigation -->
-<mat-sidenav-container>
+<mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode='over'>
 <!-- contenu du menu de navigation -->
 <!-- Identité utilisateur -->
@@ -20,6 +21,7 @@
             <a mat-list-item routerLink="/newcase" (click)="sidenav.close()">Créer Affaire</a>
             <a mat-list-item routerLink="/vehicules" (click)="sidenav.close()">Véhicules</a>
             <a mat-list-item routerLink="/weapons" (click)="sidenav.close()">Armes</a>
+            <a mat-list-item routerLink="/pieceOfEvidence" (click)="sidenav.close()">Pièces à conviction</a>
             <a mat-list-item routerLink='/cellules' (click)='sidenav.close()'>Cellules</a>
         </mat-nav-list>
     </mat-sidenav>
@@ -31,6 +33,16 @@
 </mat-sidenav-container>
 
 <!-- footer -->
-<footer>
-    <div>Footer provisoire</div>
+<footer class="fond">
+    <div fxLayout="row">
+        <div fxFlex="33" class="alignerAuCentre">
+            <h4>Conception </h4>
+        </div>
+        <div fxFlex="34" fxLayoutAlign="center">
+            <img class="titrePageIcone" src="assets/icons/icone-simplon.png"/>
+        </div>
+        <div fxFlex="33" class="alignerAuCentre">
+            <h4>&copy; GGSF - mars 2018</h4>
+        </div>
+    </div>
 </footer>

@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableCaseComponent } from './table-case.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatTableModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
+import { CaseService } from '../../../controller/case.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 describe('TableCaseComponent', () => {
   let component: TableCaseComponent;
@@ -8,7 +14,10 @@ describe('TableCaseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableCaseComponent ]
+      imports: [MatTableModule, RouterModule, HttpClientModule],
+      declarations: [ TableCaseComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      providers: [CaseService]
     })
     .compileComponents();
   }));

@@ -1,24 +1,29 @@
-<section fxLayout="row" fxLayout.xs="column">
-  <div fxFlex="25">
-    <h6>Nom</h6>
-    <p>{{data.name}}</p>
-    <h6>Marque</h6>
-    <p>{{data.brand}}</p>
-    <h6>Couleur</h6>
-    <p>{{data.color}}</p>
-    <h6>Immatriculation</h6>
-    <p>{{data.licensePlate}}</p>
-    <h6>Description</h6>
-    <p>{{data.description}}</p>
-  </div>
-  <div fxFlex="40">
-<!-- INSERER table photo -->
-  </div>
-  <div fxFlex="35">
-    <div fxLayout="column">
-      <mat-card><!-- INSERER table affaire --></mat-card>
-      <mat-card><!-- INSERER table comment --></mat-card>
-      <mat-card><!-- INSERER table tag --></mat-card>
-    </div>
-  </div>
-</section>
+<!-- Formulaire de création/édition de véhicule -->
+<mat-card *ngIf=vehicule>
+    <mat-toolbar fxLayoutAlign="center center">Edition</mat-toolbar>
+    <form #vehiculeForm="ngForm"
+      (ngSubmit)="onSubmit(vehiculeForm)"
+      fxLayout="column" class="container">
+      <mat-form-field>
+        <input matInput type="text" required
+          placeholder="name" name="name"
+          [(ngModel)]="vehicule.marque">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" required
+          placeholder="model" name="model"
+          [(ngModel)]="vehicule.model">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" required
+          placeholder="color" name="color"
+          [(ngModel)]="vehicule.color">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" required
+          placeholder="color" name="color"
+          [(ngModel)]="vehicule.licensePlate">
+      </mat-form-field>
+      <button mat-raised-button type="submit" [disabled]="!vehiculeForm.valid" color="accent">Envoyer</button>
+    </form>
+    </mat-card>

@@ -17,4 +17,7 @@ export class CaseService {
   createAffaire(c: Case): Observable<Case> {
     return this.http.post<Case>(`${HOST}/case`, c);
   }
+  getCase(id: number): Observable<Case> {
+    return this.http.get<Case>(`${HOST}/case/${id}`);
+  }
 }

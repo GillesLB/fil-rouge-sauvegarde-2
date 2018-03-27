@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PopupWeaponComponent } from './popup-weapon.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PopupWeaponComponent', () => {
   let component: PopupWeaponComponent;
@@ -8,7 +9,8 @@ describe('PopupWeaponComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopupWeaponComponent ]
+      declarations: [ PopupWeaponComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

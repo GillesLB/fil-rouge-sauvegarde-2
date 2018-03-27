@@ -12,14 +12,14 @@ export interface Case {
     date?: string;
     name?: string;
     description?: string;
-    listComment?: Comment[];
-    listUser?: User[];
-    listPhoto?: Photo[];
-    listPoE?: PieceOfEvidence[];
-    listVictim?: People[];
-    listSuspect?: People[];
-    listWitness?: People[];
-    listWeapon?: Weapon[];
+    comment?: Comment[];
+    user?: User[];
+    photo?: Photo[];
+    poE?: PieceOfEvidence[];
+    victim?: People[];
+    suspect?: People[];
+    witness?: People[];
+    weapon?: Weapon[];
     vehicule?: Vehicule[];
-    listTag?: Tag[];
+    tag?: Tag[];
 }

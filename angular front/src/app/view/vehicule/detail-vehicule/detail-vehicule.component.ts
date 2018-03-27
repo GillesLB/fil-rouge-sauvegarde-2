@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Vehicule } from '../../../model/vehicule';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VehiculeService } from '../../../controller/vehicule.service';
+import { CaseService } from '../../../controller/case.service';
 
 @Component({
   selector: 'app-detail-vehicule',
@@ -9,40 +10,38 @@ import { VehiculeService } from '../../../controller/vehicule.service';
   styleUrls: ['./detail-vehicule.component.css']
 })
 export class DetailVehiculeComponent implements OnInit {
-
   id: number;
-  vehicule: Vehicule; // undefined
+  vehicule: Vehicule;
   errText: string;
   title = {
     'text-align': 'center'
   };
 
-  constructor(private route: ActivatedRoute, private vehiculeService: VehiculeService, private router: Router) {
-    console.log(route.snapshot.url); // array of url segments
-    console.log(route.snapshot.url[0].path);
-    console.log(route.snapshot.url[1].path);
+  constructor(private route: ActivatedRoute,
+     private vehiculeService: VehiculeService,
+     private router: Router,
+     private caseService: CaseService) {
    }
 
   ngOnInit() {
+    // récupération de l'ID dans l'uri
     this.id = +this.route.snapshot.paramMap.get('id');
+    // récupération de l'objet véhicule
     this.vehiculeService.getVehicule(this.id).subscribe(
       data => this.vehicule = data,
       error => this.errText = 'la requête a échouée');
-    this.vehiculeService.vehicule = this.vehicule;
-    console.log(this.vehicule);
-
   }
 
-  testVehicule() {
-    console.log(this.vehicule);
-  }
 
+  // retour au tableau des véhicules
   backToList() {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
+  // suppression du véhicule
   delete() {
     this.vehiculeService.deleteVehicule(this.id).subscribe( () =>
       this.router.navigate(['../'], {relativeTo: this.route}));
   }
+
 }

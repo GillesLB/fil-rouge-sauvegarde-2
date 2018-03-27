@@ -30,10 +30,6 @@ export class FormWeaponComponent implements OnInit {
         type: '',
         modele: '',
         updateDate: '',
-        listComment: [],
-        listPhoto: [],
-        listCase: [],
-        listTag: [],
       };
     }
   }

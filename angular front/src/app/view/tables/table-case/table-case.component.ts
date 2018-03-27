@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Case } from '../../../model/case';
-import { AffaireService } from '../../../controller/affaire.service';
 import { CaseService } from '../../../controller/case.service';
 import { MatTableDataSource, MatPaginator} from '@angular/material';
 
@@ -11,13 +10,13 @@ import { MatTableDataSource, MatPaginator} from '@angular/material';
   styleUrls: ['./table-case.component.css']
 })
 export class TableCaseComponent implements OnInit {
-  caseColumns = ['date', 'name', 'description', 'button'];
+  caseColumns = ['date', 'name', 'description'];
   caseSource;
   errText: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(public affaireService: AffaireService, private caseService: CaseService) { }
+  constructor(private caseService: CaseService) { }
 
   ngOnInit() {
     this.caseService.getCases().subscribe(
@@ -33,10 +32,6 @@ export class TableCaseComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.caseSource.filter = filterValue;
-  }
-
-  selectAffaire(row) {
-    this.affaireService.selectAffaire(row);
   }
 }
 

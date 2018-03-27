@@ -1,9 +1,9 @@
-<section fxLayout='row'>
+<section fxLayout='row' class="fond">
   <div fxFlex='70'>
 <mat-card >
   <div fxLayout='row' fxLayout.xs='column'>
     <article fxFlex='40'>
-      <h1 [ngStyle.xs]='title'>VEHICULE</h1>
+      <h1 class="titreDetail">VEHICULE</h1>
       <h6 [ngStyle.xs]='title'>dernière mise à jour le {{vehicule?.updateDate | date: 'dd/MM/yyyy'}}</h6>
       <p>Marque : {{vehicule?.marque}}</p>
       <p>Modèle : {{vehicule?.model}}</p>
@@ -16,10 +16,10 @@
   <h3 [ngStyle.xs]='title'>Affaire associées</h3>
   <app-table-vehicule></app-table-vehicule>
 </mat-card>
-<div  fxLayout="row" fxLayoutAlign="end">
-  <button mat-raised-button color="accent" routerLink="edit">Editer</button>
-  <button mat-raised-button color="accent" (click)="delete()">Supprimer</button>
-<button mat-raised-button (click)="backToList()" color="accent">Retour</button>
+<div  fxLayout="row" fxLayoutAlign="begin">
+  <button mat-raised-button class="couleurBoutonForm" routerLink="edit"><mat-icon>mode_edit</mat-icon>&nbsp;Editer</button>&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button class="couleurBoutonForm" (click)="delete()"><mat-icon>warning</mat-icon>&nbsp;Supprimer</button>&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button class="couleurBoutonForm" (click)="backToList()"><mat-icon>reply</mat-icon>&nbsp;Retour</button>
 </div>
 </div>
 <mat-card fxFlex='30'>

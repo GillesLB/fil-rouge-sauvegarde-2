@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicule } from '../../../model/vehicule';
-import { AffaireService } from '../../../controller/affaire.service';
 import { PopupService } from '../../../controller/popup.service';
 import { ActivatedRoute } from '@angular/router';
 import { VehiculeService } from '../../../controller/vehicule.service';
+import { MatTableDataSource } from '@angular/material';
+import { CaseService } from '../../../controller/case.service';
+import { Case } from '../../../model/case';
 
 @Component({
   selector: 'app-table-vehicule',
@@ -13,27 +15,29 @@ import { VehiculeService } from '../../../controller/vehicule.service';
 export class TableVehiculeComponent implements OnInit {
   id: number;
   errText: string;
-  vehiculeColumns = ['date', 'name', 'brand', 'color', 'licensePlate', 'description'];
+  vehiculeColumns = ['marque', 'model', 'color', 'licensePlate', 'createDate', 'updateDate', 'edit', 'delete'];
+  policeCase: Case;
   vehiculeSource;
   constructor(
-    public affaireService: AffaireService,
     public popupService: PopupService,
     private route: ActivatedRoute,
-    private vehiculeService: VehiculeService) { }
+    private vehiculeService: VehiculeService,
+  private caseService: CaseService) { }
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
-    if (this.route.snapshot.url[1].path === 'vehicules') {
-      this.vehiculeService.getVehicule(this.id).subscribe(
-        data => this.vehiculeSource = data,
+      this.caseService.getCase(this.id).subscribe(
+        data => this.vehiculeSource = new MatTableDataSource(data.vehicule),
         err => this.errText = 'la requête a échouée'
       );
     }
-  }
 
 // ouverture du popup avec le contenu de la ligne en paramètre
-  openDialog(row) {
-    this.popupService.openDialog(row);
+  dialogEdit(row) {
+    this.popupService.openEditVehicule(row);
   }
 
+  dialogDeleteLink(row) {
+    this.popupService.openDLinkVehicule(row);
+  }
 }

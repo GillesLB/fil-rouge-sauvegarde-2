@@ -6,16 +6,17 @@ body {
 }
 
 button {
-    color: #ff6d00;
+    color: rgb(190, 98, 12);
 }
 
 footer {
     background-color: #042f52 !important;
-    height: 40px !important;
+    height: 45px !important;
     width: 100%;
-    text-align: center;
+    vertical-align: middle !important;
+    line-height:0em;
     color: white !important;
-    margin-bottom: -10;
+    padding-bottom: -10;
 }
 
 mat-icon {
@@ -30,13 +31,48 @@ mat-sidenav-container {
     height: 85vh;
 }
 
+mat-sidenav-content {
+    background-color: rgb(250, 249, 211);
+}
+
 mat-toolbar {
     background-color: #042f52 !important;
     color: white !important;
 }
 
+.add {
+    background-color: rgb(190, 98, 12) !important;
+}
+
+.aligner {
+    display: flex;
+    float: left;
+}
+.alignerAuCentre {
+    text-align: center !important;
+}
+
+.alignerAGauche {
+    text-align: left !important;
+}
+
+.alignerADroite {
+    text-align: right !important;
+}
+
+
+.clicLigneTableau:hover {
+    background-color: rgba(4, 47, 82, 0.03);
+}
+
+.couleurBoutonForm {
+    background-color: rgb(190, 98, 12) !important;
+    color: white !important;
+}
+
 .envoyer {
-    background-color: blueviolet;
+    background-color: rgb(190, 98, 12);
+    color: white !important;
 }
 
 .fond {
@@ -55,6 +91,11 @@ mat-toolbar {
     margin: 10px;
 }
 
+.mat-fab {
+    display: flex;
+    float: left;
+}
+
 .matricule {
     text-align: center;
     margin-top: 0px;
@@ -65,10 +106,45 @@ mat-toolbar {
     margin: 0px;
 }
 
-.titrePage {
+.titreAffaire {
+    display: flex;
+    text-align: left;
+    height: 50px;
+    width: 760px;
+    line-height: 2em;
     background-color: #042f52;
     color: white;
     font-size: 26px;
+}
+
+.titreDetail {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.titrePage {
+    display: flex;
+    text-align: left;
+    height: 50px;
+    width: 320px;
+    line-height: 2em;
+    background-color: #042f52;
+    color: white;
+    font-size: 26px;
+}
+
+.titrePageIcone {
+    float: left;
+    vertical-align: middle;
+}
+
+.titreTableau {
+    background-color: #abadb3;
+}
+
+.taillePoliceTitreTableau {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .userIcon {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AffaireService } from '../../../controller/affaire.service';
+import { ActivatedRoute } from '@angular/router';
+import { CaseService } from '../../../controller/case.service';
+import { Case } from '../../../model/case';
 
 @Component({
   selector: 'app-page-affaire',
@@ -7,16 +9,23 @@ import { AffaireService } from '../../../controller/affaire.service';
   styleUrls: ['./page-affaire.component.css']
 })
 export class PageAffaireComponent implements OnInit {
-  affaire = this.affaireService.selectedAffaire;
-  editModeDescription: boolean = false;
+  affaire: Case;
+  errtext: string;
 
-  constructor(public affaireService: AffaireService) { }
+  constructor(private route: ActivatedRoute, private caseService: CaseService) { }
 
-  ngOnInit() {}
-
-// switch edition/affichage de la description
-  editDescription() {
-    this.editModeDescription = !this.editModeDescription;
+  ngOnInit() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.caseService.getCase(id).subscribe(
+      data => this.affaire = data,
+      err => this.errtext = 'la requête a échouée'
+    );
   }
+
+  test() {
+    console.log(this.affaire.vehicule[0].model);
+  }
+
+
 
 }

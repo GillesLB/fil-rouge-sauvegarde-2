@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableVictimComponent } from './table-victim.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatTableModule } from '@angular/material';
 
 describe('TableVictimComponent', () => {
   let component: TableVictimComponent;
@@ -8,7 +10,9 @@ describe('TableVictimComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableVictimComponent ]
+      declarations: [ TableVictimComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      imports: [MatTableModule]
     })
     .compileComponents();
   }));

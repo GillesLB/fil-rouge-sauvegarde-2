@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Weapon } from '../../../model/weapon';
-import { AffaireService } from '../../../controller/affaire.service';
 import { PopupService } from '../../../controller/popup.service';
 import { ActivatedRoute } from '@angular/router';
 import { WeaponService } from '../../../controller/weapon.service';
+import { CaseService } from '../../../controller/case.service';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-table-weapon',
@@ -13,26 +14,25 @@ import { WeaponService } from '../../../controller/weapon.service';
 export class TableWeaponComponent implements OnInit {
   id: number;
   errText: string;
+
   weaponColumns = ['createDate', 'type', 'modele', 'updateDate'];
   weaponSource;
   constructor(
-    public affaireService: AffaireService,
+    public caseService: CaseService,
     public popupService: PopupService,
     private route: ActivatedRoute,
     private weaponService: WeaponService) { }
 
   ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
-    if (this.route.snapshot.url[1].path === 'armes') {
-      this.weaponService.getWeapon(this.id).subscribe(
-        data => this.weaponSource = data,
-        err => this.errText = 'la requête a échouée'
-      );
-    }
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.caseService.getCase(id).subscribe(
+      data => this.weaponSource = new MatTableDataSource(data.weapon),
+      err => this.errText = 'La requête a échouée'
+    );
   }
 
 // ouverture du popup avec le contenu de la ligne en paramètre
-  openDialog(row) {
-    this.popupService.openDialog(row);
-  }
+  // openDialog(row) {
+  //  this.popupService.openDialog(row);
+  // }
 }

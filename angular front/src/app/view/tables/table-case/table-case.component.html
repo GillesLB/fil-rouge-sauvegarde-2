@@ -7,35 +7,31 @@
 <mat-table [dataSource]="caseSource">
 <!-- Définition des lignes -->
   <ng-container matColumDef="id">
-    <mat-header-cell *matHeaderCellDef>Identifiant</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau">Identifiant</mat-header-cell>
     <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="date">
-   <mat-header-cell *matHeaderCellDef fxHide.xs>Date de création</mat-header-cell>
+   <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Date de création</mat-header-cell>
    <mat-cell *matCellDef="let row" fxHide.xs>{{row.creatingDate | date: 'dd/MM/yyyy'}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="name">
-   <mat-header-cell *matHeaderCellDef>Nom</mat-header-cell>
+   <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau">Nom</mat-header-cell>
     <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="description">
-    <mat-header-cell *matHeaderCellDef fxHide.xs>Description</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Description</mat-header-cell>
    <mat-cell *matCellDef="let row" fxHide.xs>{{row.description}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="button">
-   <mat-header-cell *matHeaderCellDef></mat-header-cell>
-   <mat-cell *matCellDef="let row"><button mat-raised-button color="accent" routerLink="/affaire" (click)="selectAffaire(row)">Accéder</button></mat-cell>
   </ng-container>
 
 <!-- Définition des colonnes -->
-  <mat-header-row *matHeaderRowDef="caseColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: caseColumns" routerLink="{{row.id}}"></mat-row>
+<mat-header-row *matHeaderRowDef="caseColumns" class="titreTableau"></mat-header-row>
+<mat-row *matRowDef="let row; columns: caseColumns" class="clicLigneTableau" routerLink="/affaire/{{row.id}}"></mat-row>
 </mat-table>
 
 <mat-paginator #paginator
-                 [pageSize]=8
-                 [pageSizeOptions]="[5, 10, 20]"
-                 [showFirstLastButtons]="true">
+               [pageSize]=7
+               [pageSizeOptions]="[5, 10, 20]"
+               [showFirstLastButtons]="true">
 </mat-paginator>
 </section>
 

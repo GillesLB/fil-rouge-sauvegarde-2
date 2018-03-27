@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { WeaponService } from '../../../controller/weapon.service';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatIconRegistry } from '@angular/material';
 
 @Component({
   selector: 'app-table-weapons',

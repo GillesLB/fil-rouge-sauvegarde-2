@@ -3,10 +3,10 @@
 <mat-card >
   <div fxLayout='row' fxLayout.xs='column'>
     <article fxFlex='40'>
-      <h1 [ngStyle.xs]='title'>ARME</h1>
+      <h1 class="titreDetail">ARME</h1>
       <h6 [ngStyle.xs]='title'>dernière mise à jour le {{weapon?.updateDate | date: 'dd/MM/yyyy'}}</h6>
-      <p>Type : {{weapon?.type}}</p>
-      <p>Modèle : {{weapon?.modele}}</p>
+      <p>Type : <b>{{weapon?.type}}</b></p>
+      <p>Modèle : <b>{{weapon?.modele}}</b></p>
       <p>Date de création : {{weapon?.createDate | date: 'dd/MM/yyyy'}}</p>   
     </article>
     <mat-card fxFlex='60'>PHOTO</mat-card>
@@ -14,10 +14,10 @@
   <h3 [ngStyle.xs]='title'>Affaire associées</h3>
   <app-table-weapon></app-table-weapon>
 </mat-card>
-<div  fxLayout="row" fxLayoutAlign="end">
-  <button mat-raised-button color="accent" routerLink="edit">Editer</button>
-  <button mat-raised-button color="accent" (click)="delete()">Supprimer</button>
-  <button mat-raised-button color="accent" (click)="backToList()">Retour</button>
+<div  fxLayout="row" fxLayoutAlign="begin">
+  <button mat-raised-button class="couleurBoutonForm" routerLink="edit"><mat-icon>mode_edit</mat-icon>&nbsp;Editer</button>&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button class="couleurBoutonForm" (click)="delete()"><mat-icon>warning</mat-icon>&nbsp;Supprimer</button>&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button class="couleurBoutonForm" (click)="backToList()"><mat-icon>reply</mat-icon>&nbsp;Retour</button>
 </div>
 </div>
 <mat-card fxFlex='30'>

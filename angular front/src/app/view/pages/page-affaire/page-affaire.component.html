@@ -1,17 +1,29 @@
 <section fxLayout="row" fxLayout.xs="column">
-  <mat-card fxFlex="40">
-    <h2>Affaire {{affaire.name}}</h2>
-    <h4>Description</h4>
+  <mat-card fxFlex="55" class="alignerAGauche">
+    <div fxLayout="row">
+      <div class="titreAffaire"><img class="titrePageIcone" src="assets/icons/icone-actuel.png"/>&nbsp;&nbsp;&nbsp;Affaire : {{affaire.name}}</div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" class="alignerAGauche">
+        <h3>Création de l'affaire le : {{ affaire.dateCreation | date: 'dd/MM/yyyy'}}</h3>
+      </div>
+      <div fxFlex="50" class="alignerADroite">
+        <h3>Modification de l'affaire le : {{ affaire.dateModification | date: 'dd/MM/yyyy'}}</h3>
+      </div>
+    </div>
+    <h4><u>Description</u></h4>
 <!-- description de l'affaire -->
     <mat-card>
       <p>{{affaire.description}}</p>
     </mat-card> 
   </mat-card>
-<mat-card fxFlex="60">
-  <h4>Historique [Fonctionnalité à venir]</h4>
-  <app-message-affaire></app-message-affaire>
-</mat-card>
+  <mat-card fxFlex="45">
+      <div class="titreAffaire" style="width: 320px"><img class="titrePageIcone" src="assets/icons/icone-historique.png"/>&nbsp;&nbsp;&nbsp;<b>Historique</b></div>
+    <app-message-affaire></app-message-affaire>
+    <h4 style="text-align: center; color: rgb(184, 25, 25)">[Fonctionnalité à venir]</h4>
+  </mat-card>
 </section>
+
 <mat-card>
   <h4>Sections</h4>
   <app-explore-tables></app-explore-tables>

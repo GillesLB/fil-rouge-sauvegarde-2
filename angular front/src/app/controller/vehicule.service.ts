@@ -32,4 +32,8 @@ export class VehiculeService {
   deleteVehicule(id: number): Observable<Vehicule> {
     return this.http.delete<Vehicule>(`${HOST}/vehicule/${id}`);
   }
+
+  deleteVehiculeLink(idCase: number, idVehicule: number): Observable<any> {
+    return this.http.delete<any>(`${HOST}/linkVehicule/${idCase}/${idVehicule}`);
+  }
 }

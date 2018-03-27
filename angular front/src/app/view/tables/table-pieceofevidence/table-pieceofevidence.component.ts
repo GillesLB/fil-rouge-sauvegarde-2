@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PieceOfEvidence } from '../../../model/pieceOfEvidence';
-import { AffaireService } from '../../../controller/affaire.service';
+import { ActivatedRoute } from '@angular/router';
+import { CaseService } from '../../../controller/case.service';
+import { Case } from '../../../model/case';
+import { MatTableDataSource } from '@angular/material';
 
 
 @Component({
@@ -9,22 +12,17 @@ import { AffaireService } from '../../../controller/affaire.service';
   styleUrls: ['./table-pieceofevidence.component.css']
 })
 export class TablePieceofevidenceComponent implements OnInit {
-  pieceOfEvidenceColumns = ['date', 'name', 'description', 'button'];
-  pieceOfEvidenceSource = this.affaireService.selectedAffaire.listPoE;
+  pieceOfEvidenceColumns = ['id', 'createDate', 'type', 'serialNumber'];
+  pieceOfEvidenceSource;
 
 
-  constructor(public affaireService: AffaireService) { }
+  constructor(private route: ActivatedRoute, private caseService: CaseService) { }
 
   ngOnInit() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.caseService.getCase(id).subscribe(
+      data => this.pieceOfEvidenceSource = new MatTableDataSource(data.poE));
+
   }
 
 }
-
-// USER TESTING
-const generatedListPieceOfEvidence: PieceOfEvidence[] = [
-  {id: 1, date: '21/05/2015', name: 'drap ensanglanté', description: 'trouvé sur le lit',
-   listComment: [], listPhoto: [], listCase: [], listTag: []},
-   {id: 1, date: '21/05/2015', name: 'drap ensanglanté', description: 'trouvé sur le lit',
-   listComment: [], listPhoto: [], listCase: [], listTag: []},
-];
-

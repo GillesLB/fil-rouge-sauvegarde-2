@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateCelluleComponent } from './create-cellule.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgForm, FormsModule } from '@angular/forms';
+import { CelluleService } from '../../../controller/cellule.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('CreateCelluleComponent', () => {
   let component: CreateCelluleComponent;
@@ -8,7 +12,10 @@ describe('CreateCelluleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateCelluleComponent ]
+      declarations: [ CreateCelluleComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      providers: [NgForm, CelluleService],
+      imports: [FormsModule, HttpClientModule]
     })
     .compileComponents();
   }));
