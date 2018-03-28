@@ -10,16 +10,13 @@ import { WeaponService } from '../../../controller/weapon.service';
   styleUrls: ['./detail-weapon.component.css']
 })
 export class DetailWeaponComponent implements OnInit {
-
   id: number;
   weapon: Weapon;
   errText: string;
-  title = {
-    'text-align': 'center'
-  };
 
   constructor(private weaponService: WeaponService, private route: ActivatedRoute, private router: Router) { }
 
+  // initialise le component / la directive après qu'Angular ait valorisé @Input.
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.weaponService.getWeapon(this.id)
@@ -27,7 +24,6 @@ export class DetailWeaponComponent implements OnInit {
       this.weapon = data,
       error => this.errText = 'la requête a échouée');
     this.weaponService.weapon = this.weapon;
-    console.log(this.weapon); // test
   }
 
   testweapon() {

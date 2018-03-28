@@ -36,12 +36,12 @@
       <mat-cell *matCellDef="let row" fxHide.xs>{{row.updateDate | date: 'dd/MM/yyyy'}}</mat-cell>
     </ng-container>
   <mat-header-row *matHeaderRowDef="vehiculeColumns" class="titreTableau"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: vehiculeColumns" routerLink="{{row.id}}"></mat-row>
+  <mat-row *matRowDef="let row; columns: vehiculeColumns" class="clicLigneTableau" routerLink="{{row.id}}"></mat-row>
 </mat-table>
 <button mat-fab class="add" routerLink="/newvehicule"><mat-icon>add</mat-icon></button>
 <mat-paginator #paginator
                  [pageSize]=8
                  [pageSizeOptions]="[5, 10, 20]"
                  [showFirstLastButtons]="true">
-  </mat-paginator>
+</mat-paginator>
 </section>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { LoginComponent } from './view/login/login.component';
 import { PageAffaireComponent } from './view/pages/page-affaire/page-affaire.component';
 import { VehiculeComponent } from './view/vehicule/vehicule.component';
@@ -21,7 +22,7 @@ import { FormPieceOfEvidenceComponent } from './view/piece-of-evidence/form-piec
 const routes: Routes = [
  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
  {path: 'login', component: LoginComponent},
- {path: 'dashboard', component: DashboardComponent },
+ {path: 'dashboard', component: DashboardComponent},
  {path: 'affaire/:id', component: PageAffaireComponent},
  {path: 'vehicules', component: VehiculeComponent},
  {path: 'vehicules/:id', component: DetailVehiculeComponent,
