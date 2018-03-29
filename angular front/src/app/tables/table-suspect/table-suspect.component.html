@@ -1,0 +1,68 @@
+<mat-table [dataSource]="suspectSource">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Identifiant</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.id}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Date</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.date | date: 'dd/MM/yyyy'}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="firstName">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Prénom</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.firstName}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="lastName">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau">Nom de famille</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.lastName}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="nickName">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Surnom</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.nickName}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="adress">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Adresse Postale</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.adress}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="adn">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>ADN</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.adn}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="tatoo">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Tatouage</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.tatoo}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="skinColor">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Couleur de peau</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.skinColor}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="eyeColor">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Couleur des yeux</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.eyeColor}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="hairColor">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Couleur des cheveux</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.hairColor}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="hairStyle">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>coupe de cheveux</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.hairStyle}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="size">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Taille</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.size}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Poids</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.weight}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef class="taillePoliceTitreTableau" fxHide.xs>Description</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.description}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="button">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let row"><button mat-raised-button color="accent">Accéder</button></mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="suspectColumns" class="titreTableau"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: suspectColumns"></mat-row>
+</mat-table>

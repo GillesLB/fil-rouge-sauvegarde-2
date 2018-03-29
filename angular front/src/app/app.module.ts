@@ -1,62 +1,58 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './/app-routing.module';
-import { LoginComponent } from './view/login/login.component';
-import { TableCaseComponent } from './view/tables/table-case/table-case.component';
-import { TableWeaponComponent } from './view/tables/table-weapon/table-weapon.component';
-import { TableVehiculeComponent } from './view/tables/table-vehicule/table-vehicule.component';
-import { TablePieceofevidenceComponent } from './view/tables/table-pieceofevidence/table-pieceofevidence.component';
-import { TableWitnessComponent } from './view/tables/table-witness/table-witness.component';
-import { TableVictimComponent } from './view/tables/table-victim/table-victim.component';
-import { TableSuspectComponent } from './view/tables/table-suspect/table-suspect.component';
-import { PageAffaireComponent } from './view/pages/page-affaire/page-affaire.component';
-import { ExploreTablesComponent } from './view/pages/page-affaire/explore-tables/explore-tables.component';
-import { MessageAffaireComponent } from './view/pages/page-affaire/message-affaire/message-affaire.component';
-import { PopupVehiculeComponent } from './view/popup/popup-vehicule/popup-vehicule.component';
-import { PopupWeaponComponent } from './view/popup/popup-weapon/popup-weapon.component';
-import { PopupPieceofevidenceComponent } from './view/popup/popup-pieceofevidence/popup-pieceofevidence.component';
-import { PopupService } from './controller/popup.service';
-import { CaseService } from './controller/case.service';
-import { PoeService } from './controller/poe.service';
-import { SuspectService } from './controller/suspect.service';
-import { VehiculeService } from './controller/vehicule.service';
-import { VictimService } from './controller/victim.service';
-import { WeaponService } from './controller/weapon.service';
-import { WitnessService } from './controller/witness.service';
-import { VehiculeComponent } from './view/vehicule/vehicule.component';
-import { WeaponComponent } from './view/weapon/weapon.component';
-import { DetailVehiculeComponent } from './view/vehicule/detail-vehicule/detail-vehicule.component';
-import { TableVehiculesComponent } from './view/vehicule/table-vehicules/table-vehicules.component';
-import { DashboardComponent } from './view/dashboard/dashboard.component';
-import { CelluleComponent } from './view/cellule/cellule.component';
-import { DetailCelluleComponent } from './view/cellule/detail-cellule/detail-cellule.component';
-import { TableCelluleComponent } from './view/cellule/table-cellule/table-cellule.component';
-import { CreateCelluleComponent } from './view/cellule/create-cellule/create-cellule.component';
-import { CelluleService } from './controller/cellule.service';
-import { AffaireVehiculeComponent } from './view/vehicule/affaire-vehicule/affaire-vehicule.component';
-import { FormVehiculeComponent } from './view/vehicule/form-vehicule/form-vehicule.component';
-import { PopupDeleteLinkComponent } from './view/popup/popup-delete-link/popup-delete-link.component';
-import { PieceOfEvidenceComponent } from './view/piece-of-evidence/piece-of-evidence.component';
-import { DetailPieceOfEvidenceComponent } from './view/piece-of-evidence/detail-piece-of-evidence/detail-piece-of-evidence.component';
-import { FormPieceOfEvidenceComponent } from './view/piece-of-evidence/form-piece-of-evidence/form-piece-of-evidence.component';
-import { TablePieceOfEvidenceComponent } from './view/piece-of-evidence/table-piece-of-evidence/table-piece-of-evidence.component';
-import { FormWeaponComponent } from './view/weapon/form-weapon/form-weapon.component';
-import { DetailWeaponComponent } from './view/weapon/detail-weapon/detail-weapon.component';
-import { TableWeaponsComponent } from './view/weapon/table-weapons/table-weapons.component';
+import { MaterialModule } from './material.module';
+import { TableCaseComponent } from './tables/table-case/table-case.component';
+import { TableWeaponComponent } from './tables/table-weapon/table-weapon.component';
+import { TableVehiculeComponent } from './tables/table-vehicule/table-vehicule.component';
+import { TablePieceofevidenceComponent } from './tables/table-pieceofevidence/table-pieceofevidence.component';
+import { TableWitnessComponent } from './tables/table-witness/table-witness.component';
+import { TableVictimComponent } from './tables/table-victim/table-victim.component';
+import { TableSuspectComponent } from './tables/table-suspect/table-suspect.component';
+import { PageAffaireComponent } from './modules/pages/page-affaire/page-affaire.component';
+import { ExploreTablesComponent } from './modules/pages/page-affaire/explore-tables/explore-tables.component';
+import { PopupVehiculeComponent } from './popup/popup-vehicule/popup-vehicule.component';
+import { PopupWeaponComponent } from './popup/popup-weapon/popup-weapon.component';
+import { PopupPieceofevidenceComponent } from './popup/popup-pieceofevidence/popup-pieceofevidence.component';
+import { VehiculeComponent } from './modules/vehicule/vehicule.component';
+import { DetailVehiculeComponent } from './modules/vehicule/detail-vehicule/detail-vehicule.component';
+import { TableVehiculesComponent } from './tables/table-vehicules/table-vehicules.component';
+import { FormVehiculeComponent } from './modules/vehicule/form-vehicule/form-vehicule.component';
+import { PopupDeleteLinkComponent } from './popup/popup-delete-link/popup-delete-link.component';
+import { PieceOfEvidenceComponent } from './modules/piece-of-evidence/piece-of-evidence.component';
+import { DetailPieceOfEvidenceComponent } from './modules/piece-of-evidence/detail-piece-of-evidence/detail-piece-of-evidence.component';
+import { FormPieceOfEvidenceComponent } from './modules/piece-of-evidence/form-piece-of-evidence/form-piece-of-evidence.component';
+import { TablePieceOfEvidenceComponent } from './tables/table-piece-of-evidence/table-piece-of-evidence.component';
+import { PopupAssociateComponent } from './modules/pages/page-affaire/popup-associate/popup-associate.component';
+import { AssociateVehiculeComponent } from './modules/pages/page-affaire/popup-associate/associate-vehicule/associate-vehicule.component';
+import { PopupService } from './core/popup.service';
+import { DashboardComponent } from './core/dashboard/dashboard.component';
+import { NavigationComponent } from './core/navigation/navigation.component';
+import { MessageAffaireComponent } from './modules/pages/page-affaire/message-affaire/message-affaire.component';
+import { WeaponComponent } from './modules/weapon/weapon.component';
+import { DetailWeaponComponent } from './modules/weapon/detail-weapon/detail-weapon.component';
+import { FormWeaponComponent } from './modules/weapon/form-weapon/form-weapon.component';
+import { TableWeaponsComponent } from './tables/table-weapons/table-weapons.component';
+import { CaseService } from './core/api/case.service';
+import { WeaponService } from './core/api/weapon.service';
+import { VehiculeService } from './core/api/vehicule.service';
+import { PoeService } from './core/api/poe.service';
+import { WitnessService } from './core/api/witness.service';
+import { SuspectService } from './core/api/suspect.service';
+import { VictimService } from './core/api/victim.service';
+import { CommentService } from './core/api/comment.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     TableCaseComponent,
     TableWeaponComponent,
     TableVehiculeComponent,
@@ -66,29 +62,27 @@ import { TableWeaponsComponent } from './view/weapon/table-weapons/table-weapons
     TableSuspectComponent,
     PageAffaireComponent,
     ExploreTablesComponent,
-    MessageAffaireComponent,
     PopupVehiculeComponent,
     PopupWeaponComponent,
     PopupPieceofevidenceComponent,
-    FormWeaponComponent,
     VehiculeComponent,
-    WeaponComponent,
     DetailVehiculeComponent,
-    DetailWeaponComponent,
     TableVehiculesComponent,
-    TableWeaponsComponent,
-    DashboardComponent,
-    CelluleComponent,
-    DetailCelluleComponent,
-    TableCelluleComponent,
-    CreateCelluleComponent,
-    AffaireVehiculeComponent,
     FormVehiculeComponent,
     PopupDeleteLinkComponent,
     PieceOfEvidenceComponent,
     DetailPieceOfEvidenceComponent,
     FormPieceOfEvidenceComponent,
-    TablePieceOfEvidenceComponent
+    TablePieceOfEvidenceComponent,
+    PopupAssociateComponent,
+    AssociateVehiculeComponent,
+    DashboardComponent,
+    NavigationComponent,
+    MessageAffaireComponent,
+    WeaponComponent,
+    DetailWeaponComponent,
+    FormWeaponComponent,
+    TableWeaponsComponent
   ],
   imports: [
     BrowserModule,
@@ -99,9 +93,23 @@ import { TableWeaponsComponent } from './view/weapon/table-weapons/table-weapons
     FormsModule,
     HttpClientModule
   ],
-  entryComponents: [PopupVehiculeComponent, PopupWeaponComponent, PopupDeleteLinkComponent],
-  providers: [PopupService, CaseService, PoeService, SuspectService,
-     VehiculeService, VictimService, WeaponService, WitnessService, CelluleService, HttpClientModule],
+  exports: [
+    MaterialModule
+  ],
+  entryComponents: [PopupVehiculeComponent, PopupDeleteLinkComponent, PopupAssociateComponent],
+  providers: [
+    HttpClientModule,
+    PageAffaireComponent,
+    PopupService,
+    CaseService,
+    WeaponService,
+    VehiculeService,
+    PoeService,
+    WitnessService,
+    SuspectService,
+    VictimService,
+    CommentService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

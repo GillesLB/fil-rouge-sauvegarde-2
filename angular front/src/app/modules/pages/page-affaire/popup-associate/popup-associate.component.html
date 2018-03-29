@@ -1,0 +1,47 @@
+<div fxLayout='row' fxLayoutGap='20px'>
+  <div fxFlex=50>
+    <p fxLayoutAlign='center'>Associer</p>
+      <mat-divider></mat-divider>
+<mat-form-field>
+  <mat-select placeholder="Section" [(ngModel)]="selectedAssociate" #sectionAssociate>
+    <mat-option *ngFor="let sectionAssociate of sections" [value]="sectionAssociate">
+      {{ sectionAssociate }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<div [(ngSwitch)]="selectedAssociate">
+    <ng-container *ngSwitchCase="'Suspects'">Suspects</ng-container>
+    <ng-container *ngSwitchCase="'Véhicules'">
+        <mat-form-field>
+            <mat-select placeholder="Immatriculation" [(ngModel)]="selectedVehicule" #vehicule >
+              <mat-option *ngFor="let vehicule of vehicules" [value]="vehicule">
+                {{ vehicule.licensePlate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p fxLayoutAlign='center'>Détails du véhicule</p>
+          <mat-divider></mat-divider>
+          <p>Marque: {{selectedVehicule?.marque}}</p>
+          <p>Modèle: {{selectedVehicule?.model}}</p>
+          <p>Couleur: {{selectedVehicule?.color}}</p>
+          <p>Immatriculation : {{selectedVehicule?.licensePlate}}</p>
+          <button mat-raised-button color="accent" fxLayoutAlign='center'>Associer</button>
+    </ng-container>
+    </div>
+</div>
+<div fxFlex=50>
+  <p fxLayoutAlign='center'>Créer & Associer</p>
+    <mat-divider></mat-divider>
+<mat-form-field>
+  <mat-select placeholder="Section" [(ngModel)]="selectedCreate" #sectionCreate (click)="sectionCreate.close()">
+    <mat-option *ngFor="let sectionCreate of sections" [value]="sectionCreate">
+      {{ sectionCreate }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<div [(ngSwitch)]="selectedCreate">
+    <ng-container *ngSwitchCase="'Suspects'">Suspects</ng-container>
+    <ng-container *ngSwitchCase="'Véhicules'"><app-associate-vehicule></app-associate-vehicule></ng-container>
+    </div>
+</div>
+</div>
